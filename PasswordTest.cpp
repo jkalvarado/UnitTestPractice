@@ -17,7 +17,7 @@ class PasswordTest : public ::testing::Test
 TEST(PasswordTest, single_letter_password)
 {
 	Password my_password;
-	ASSERT_EQ(1, my_password.count_characters("Z"));
+	ASSERT_EQ(1, my_password.count_leading_characters("Z"));
 }
 
 TEST(PasswordTest, mixed_case_password)
@@ -42,4 +42,15 @@ TEST(PasswordTest, all_lowercase)
 {
 	Password my_password;
 	ASSERT_EQ(4, my_password.has_mixed_case("aba"));
+}
+
+TEST(PasswordTest, upper_and_lowercase)
+{
+	Password my_password;
+	ASSERT_EQ(4, my_password.has_mixed_case("aBa"));
+}
+
+TEST(PasswordTest, all_uppercase){
+	Password my_password;
+	ASSERT_EQ(5, my_password.has_mixed_case("ABA"));
 }
